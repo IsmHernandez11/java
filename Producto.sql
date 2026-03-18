@@ -1,6 +1,6 @@
 package com.krakedev;
 
-public class Producto {
+private class Producto {
     String nombre;
     String descripcion;
     double precio;

@@ -1,6 +1,6 @@
 public class TestCuadrado {
 
-    public static void main(String[] args) {
+    private static void main(String[] args) {
 
         Cuadrado c1 = new Cuadrado(3);
         Cuadrado c2 = new Cuadrado(5);

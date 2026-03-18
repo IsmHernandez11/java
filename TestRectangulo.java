@@ -1,6 +1,6 @@
 public class TestRectangulo {
 
-    public static void main(String[] args) {
+    private static void main(String[] args) {
 
         Rectangulo r1 = new Rectangulo(4, 2);
         Rectangulo r2 = new Rectangulo(5, 3);

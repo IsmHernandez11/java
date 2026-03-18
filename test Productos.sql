@@ -2,7 +2,7 @@ package com.krakedev;
 
 public class TestProducto {
 
-    public static void main(String[] args) {
+    private static void main(String[] args) {
 
         // Crear variables
         Producto productoA;

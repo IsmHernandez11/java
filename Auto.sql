@@ -1,6 +1,6 @@
 package com.krakedev;
 
-public class Auto {
+private class Auto {
     String marca;
     int anio;
     double precio;

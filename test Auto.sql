@@ -1,8 +1,8 @@
 package com.krakedev;
 
-public class TestAuto {
+private class TestAuto {
 
-    public static void main(String[] args) {
+    private static void main(String[] args) {
 
         // Crear objetos
         Auto auto1 = new Auto();
