@@ -1,4 +1,8 @@
-public class Direccion {
+import java.util.*;
+import java.text.SimpleDateFormat;
+
+// ===================== DIRECCION (TU CÓDIGO) =====================
+class Direccion {
 
     private String callePrincipal;
     private String calleSecundaria;
@@ -26,14 +30,12 @@ public class Direccion {
         this.calleSecundaria = calleSecundaria;
     }
 }
-import java.util.*;
-import java.text.SimpleDateFormat;
 
 // ===================== TELEFONO =====================
 class Telefono {
     private String numero;
     private String tipo;
-    private String estado; // C o E
+    private String estado;
 
     public Telefono(String numero, String tipo, String estado) {
         this.numero = numero;
@@ -44,20 +46,6 @@ class Telefono {
     public String getNumero() { return numero; }
     public String getTipo() { return tipo; }
     public String getEstado() { return estado; }
-}
-
-// ===================== DIRECCION =====================
-class Direccion {
-    private String callePrincipal;
-    private String calleSecundaria;
-
-    public Direccion(String p, String s) {
-        this.callePrincipal = p;
-        this.calleSecundaria = s;
-    }
-
-    public String getCallePrincipal() { return callePrincipal; }
-    public String getCalleSecundaria() { return calleSecundaria; }
 }
 
 // ===================== CONTACTO =====================
@@ -79,8 +67,8 @@ class Contacto {
     public Direccion getDireccion() { return direccion; }
     public ArrayList<Telefono> getTelefonos() { return telefonos; }
 
-    public void setDireccion(Direccion d) {
-        this.direccion = d;
+    public void setDireccion(Direccion direccion) {
+        this.direccion = direccion;
     }
 
     // REQ 5
@@ -205,7 +193,7 @@ class Directorio {
     public ArrayList<Contacto> getIncorrectos() { return incorrectos; }
 }
 
-// ===================== MAIN (PRUEBAS) =====================
+// ===================== MAIN =====================
 public class Main {
     public static void main(String[] args) {
 
@@ -213,17 +201,14 @@ public class Main {
 
         Contacto c1 = new Contacto("123", "Juan", "Perez");
         Contacto c2 = new Contacto("456", "Ana", "Gomez");
-        Contacto c3 = new Contacto("123", "Pedro", "Lopez"); // duplicado
+        Contacto c3 = new Contacto("123", "Pedro", "Lopez");
 
-        // Direcciones
         c1.setDireccion(new Direccion("Calle A", "Calle B"));
 
-        // Teléfonos
         c1.agregarTelefono(new Telefono("9876543210", "Movil", "C"));
         c1.agregarTelefono(new Telefono("1112233", "Convencional", "C"));
         c1.agregarTelefono(new Telefono("999999", "Movil", "E"));
 
-        // ===== PRUEBAS =====
         System.out.println("Agregar c1: " + dir.agregarContacto(c1));
         System.out.println("Agregar c2: " + dir.agregarContacto(c2));
         System.out.println("Agregar duplicado c3: " + dir.agregarContacto(c3));
@@ -237,14 +222,13 @@ public class Main {
 
         System.out.println("\nIncorrectos: " + c1.recuperarIncorrectos().size());
 
-        System.out.println("\nPerdidos (sin dirección): " + dir.contarPerdidos());
+        System.out.println("\nPerdidos: " + dir.contarPerdidos());
 
-        System.out.println("Fijos correctos: " + dir.contarFijos());
+        System.out.println("Fijos: " + dir.contarFijos());
 
         System.out.println("\nÚltima modificación:");
         System.out.println(dir.consultarUltimaModificacion());
 
-        // Depurar
         dir.depurar();
         System.out.println("\nCorrectos: " + dir.getCorrectos().size());
         System.out.println("Incorrectos: " + dir.getIncorrectos().size());
